@@ -36,3 +36,27 @@ Route::get('/support-inbox', [App\Http\Controllers\HelpController::class, 'suppo
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+// APIS
+
+
+
+use Illuminate\Http\Request;
+
+Route::get('/api-demo', function (Request $request) {
+    return response()->json([
+        'project' => 'Imported from GitHub',
+        'learning' => 'APIs',
+        'status' => 'working'
+        
+    ]);
+});
+
+Route::post('/api-demo-post', function (Request $request) {
+    return response()->json([
+        'received' => $request->all()
+    ]);
+});
+
